@@ -1,0 +1,24 @@
+_ > nanoagent.plugin.v0001.ManifestConfig:
+id: pt-technical-signals
+name: PersonalTrader Technical Signals
+version: 0.1.0
+status: in-development
+spec: nanoagent.plugin/v0001
+runtime > nanoagent.plugin.v0001.RuntimeConfig:
+  type: mcp_stdio
+  command: [uv, run, --frozen, python, -m, plugin]
+permissions > nanoagent.plugin.v0001.PermissionsConfig:
+  network > nanoagent.plugin.v0001.NetworkConfig:
+    hosts: []
+  filesystem > nanoagent.plugin.v0001.FilesystemConfig:
+    write: [workspace]
+tools > dict[contract.Tool, nanoagent.plugin.v0001.ToolConfig]:
+  compute:
+    description: "Compute cutoff-safe moving averages and a precisely defined simple RSI from daily closes."
+tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
+  derive-signals:
+    description: "Compute cutoff-safe moving averages and a precisely defined simple RSI from daily closes."
+    runner: agent
+    tools: [compute]
+    reference: null
+    instructions: "Compute cutoff-safe moving averages and a precisely defined simple RSI from daily closes. Return every output field. Supports the technical-signal agent; computes no portfolio returns, allocations or investor constraints."

@@ -1,0 +1,9 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Compute cutoff-safe moving averages and a precisely defined simple RSI from daily closes."
+summary: "Supports the technical-signal agent; computes no portfolio returns, allocations or investor constraints."
+highlights:
+  - "Use a frozen input snapshot without a market-data account"
+  - "Check the answer with a deterministic executable verifier"
+steps:
+  - "Supply the typed input shown in the task documentation"
+  - "Run the task and inspect the verified result"
